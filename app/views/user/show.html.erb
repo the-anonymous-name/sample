@@ -1,0 +1,29 @@
+<center>
+
+<br><br><br>
+
+<h1>WELCOME <%= @user.username %> !</h1>
+
+<%= form_tag conversation_index_path %>
+
+<%= flash[:errors] %>
+
+<br><br>
+
+<%= label_tag "SEARCH" %>
+
+<br>
+
+<%= text_field_tag :receiver %>
+
+<br><br><br>
+
+<%= submit_tag "SEARCH" %>
+
+<br><br>
+
+<%= link_to '<button>LOG OUT</button>'.html_safe, session_path(@user.id), method: :delete %>
+
+<br><br><br>
+
+</center>

@@ -1,0 +1,63 @@
+<center>
+
+<br><br><br>
+
+<% user = User.find_by("id = ?", @conversation.receiver_id) %>
+
+<% if user.username.eql?current_user.username %>
+
+  <h1>MESSAGE <%= User.find_by("id = ?", @conversation.sender_id).username %> !</h1>
+
+<% else %>
+
+  <h1>MESSAGE <%= user.username %> !</h1>
+
+<% end %>
+
+<% message = Message.where("conversation_id = ?", @conversation.id) %>
+
+<div style = "padding-right: 500px; padding-left: 500px">
+
+<% message.each do |m| %>
+
+  <% if m.sender.eql?current_user.username %>
+
+    <div style = "text-align: right; padding-top: 12px; font-size: 21px; padding-bottom: 12px"> <%= m.message %> </div>
+
+  <% else %>
+
+    <div style = "text-align: left; padding-top: 12px; font-size: 21px; padding-bottom: 12px"> <%= m.message %> </div>
+
+  <% end %>
+
+<% end %>
+
+</div>
+
+<%= form_tag message_index_path %>
+
+<%= hidden_field_tag :conversation, @conversation.id %>
+
+<br><br>
+
+<%= label_tag "SEND" %>
+
+<br>
+
+<%= text_field_tag :message %>
+
+<br><br><br>
+
+<%= submit_tag "SEND" %>
+
+<br><br>
+
+<%= link_to '<button>DELETE</button>'.html_safe, conversation_path(@conversation.id), method: :delete %>
+
+<br><br>
+
+<%= link_to '<button>BACK</button>'.html_safe, user_path(current_user) %>
+
+<br><br><br>
+
+</center>

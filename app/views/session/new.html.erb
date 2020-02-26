@@ -1,0 +1,37 @@
+<center>
+
+<br><br><br>
+
+<h1>SIGN IN</h1>
+
+<%= form_tag session_index_path %>
+
+<%= flash[:errors] %>
+
+<br><br>
+
+<%= label_tag "USERNAME" %>
+
+<br>
+
+<%= text_field_tag :username %>
+
+<br><br>
+
+<%= label_tag "PASSWORD" %>
+
+<br>
+
+<%= password_field_tag :password %>
+
+<br><br><br>
+
+<%= submit_tag "SIGN IN" %>
+
+<br><br>
+
+<%= link_to '<button>HOME</button>'.html_safe, root_url %>
+
+<br><br><br>
+
+</center>

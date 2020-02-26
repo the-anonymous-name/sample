@@ -1,0 +1,63 @@
+<center>
+
+<br><br><br>
+
+<h1>SIGN UP</h1>
+
+<%= form_for @user, url: user_index_path do |user| %>
+
+<% if @user.errors.any? %>
+
+  <% @user.errors.full_messages.each do |message| %>
+
+    <p><%= message %></p>
+
+  <% end %>
+
+<% end %>
+
+<br><br>
+
+<%= user.label "USERNAME" %>
+
+<br>
+
+<%= user.text_field :username %>
+
+<br><br>
+
+<%= user.label "PASSWORD" %>
+
+<br>
+
+<%= user.password_field :password %>
+
+<br><br>
+
+<%= user.label "EMAIL" %>
+
+<br>
+
+<%= user.text_field :email %>
+
+<br><br>
+
+<%= user.label "PHONE" %>
+
+<br>
+
+<%= user.text_field :phone %>
+
+<br><br><br>
+
+<%= user.submit "SIGN UP" %>
+
+<% end %>
+
+<br>
+
+<%= link_to '<button>HOME</button>'.html_safe, root_url %>
+
+<br><br><br>
+
+</center>
